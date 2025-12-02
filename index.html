@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CRUD user email anti backend</h1>
+
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Nama">
+        <input type="email" id="email" placeholder="Email">
+        <button onclick="addUser()">Tambah user</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Edit / Hapus</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+
+    <script src="main.js"></script>
+</body>
+</html>
