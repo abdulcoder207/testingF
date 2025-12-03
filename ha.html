@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <input type="text" id="username" placeholder="username">
+        <input type="text" id="email" placeholder="email">
+        <input type="password" id="password" placeholder="password">
+        <button onclick="signUp()">sign up</button>
+        <br>
+        <br>
+        <input type="text" id="loginUsername" placeholder="username">
+        <input type="password" id="loginPassword" placeholder="password">
+        <button onclick="login()">login</button>
+    </div>
+
+    <script>
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        function signUp() {
+            const username = document.getElementById("username").value
+            const email = document.getElementById("email").value
+            const password = document.getElementById("password").value
+
+            // validasi
+            if (!username || !email || !password) {
+                alert("username, email, password wajib diisi");
+                return;
+            }
+
+            console.log(`halo ${username}`)
+
+            users.push({ username, email, password })
+
+            localStorage.setItem("users", JSON.stringify(users))
+
+            document.getElementById("username").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
+
+        function login() {
+            const username = document.getElementById("loginUsername").value
+            const password = document.getElementById("loginPassword").value
+
+            const users = JSON.parse(localStorage.getItem("users")) || []
+
+            const foundUser = users.find(
+                (user) => user.username === username && user.password === password
+            )
+
+            if (foundUser){
+                location.href = "dash.html"
+                alert(`selamat datang ${foundUser.username}`)
+            }else{
+                alert("login salah")
+            }
+
+            document.getElementById("loginUsername").value = "";
+            document.getElementById("loginPassword").value = "";
+        }
+
+
+    </script>
+</body>
+
+</html>

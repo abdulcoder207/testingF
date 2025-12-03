@@ -43,6 +43,7 @@ function addUser() {
     // Refresh tabel
     renderTable();
 
+    // Kosongkan input
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
 }
